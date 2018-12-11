@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Pricosha </title>
+Welcome to PriCoSha!
+<br>
+</head>
+
+<body>
+	<a href="/login">Login</a>
+	<br>
+	<a href="/register">Register</a>
+	<br>
+
+	Here are public posts:	
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+	
+<table>
+	<th>post time</th>
+	<th>email post</th>
+	<th>Item ID</th>
+	<th>File Path</th>
+	<th>Item Name</th>
+
+{% for line in posts %}
+	<tr>
+		<td>{{line.post_time}}</td>
+		<td>{{line.email_post}}</td>
+		<td>{{line.item_id}}</td>
+		<td>{{line.file_path}}</td>
+		<td>{{line.item_name}}</td>
+	</tr>
+{% endfor %}
+</table>
+</body>
+
+</html>

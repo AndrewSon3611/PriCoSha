@@ -1,0 +1,92 @@
+<html>
+<head>
+<title> Pricosha </title>
+</head>
+<body>
+
+<nav>
+	<ul>
+		<li><a href = "/home">Home</a></li>
+		<li><a href = "/createfg">FriendGroup</a></li>
+		<li><a href = "/managetag">Manage Tags</a></li>
+	</ul>
+</nav>
+
+
+
+<form action="/post" method="POST">
+	<h1>Welcome {{fname}}</h1> 
+
+Write your posts here!
+<br>
+	<input type="text" name = "item_id" placeholder="Item ID" required/> </br>
+	<input type="text" name = "item_name" placeholder="Item Name" required/> </br>
+	<input type="text" name = "file_path" placeholder="File Path" required/> </br>
+	<input type="text" name = "is_pub" placeholder="Privacy" required/> </br>
+	<input type="text" name = "fg_name" placeholder="Share with Friendgroup?"/> </br>
+</br>
+
+	<input type="submit" value = Post />
+</form>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+Here are your posts:
+
+<table>
+	<th>Post Time</th>
+	<th>Email</th>
+	<th>Item ID</th>
+	<th>File Path</th>
+	<th>Item Name</th>
+
+{% for line in posts %}
+	<tr>
+		<td>{{line.post_time}}</td>
+		<td>{{line.email_post}}</td>
+		<td>{{line.item_id}}</td>
+		<td>{{line.file_path}}</td>
+		<td>{{line.item_name}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<br>
+Here are your Friendgroups:
+
+<table>
+	<th>email</th>
+	<th>owner_email</th>
+	<th>fg_name</th>
+
+{% for line in friendgroup %}
+	<tr>
+		<td>{{line.email}}</td>
+		<td>{{line.owner_email}}</td>
+		<td>{{line.fg_name}}</td>
+		
+	</tr>
+{% endfor %}
+</table>
+<br>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+
+
+
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

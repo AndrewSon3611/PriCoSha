@@ -1,0 +1,86 @@
+<html>
+<head>
+<title> Pricosha </title>
+</head>
+
+<body>
+<br>
+<nav>
+	<ul class="nav">
+	<li><a href = "/home">Home</a></li>
+	<li><a href = "/createfg">Friendgroup</a></li>
+	<li><a href = "/managetag">Manage Tags</a></li>
+	</ul>
+</nav>
+</br>
+<br>
+	<h1>Welcome {{fname}}</h1> 
+</br>
+Do you want to tag your friends?
+<br>
+	<form action = "/tagfriend" method = "POST">
+		<input type = "text" name = "email_tagged" placeholder = "Email Here" required/> </br>
+		<input type = "text" name = "item_id" placeholder = "Item ID" required/> </br>
+		<input type = "submit" value = Post>
+	</form>
+</br>
+
+Here are your tag requests
+<br>
+	<table>
+	<th>Item_ID</th>
+	<th>Email</th>
+
+	{% for line in tags %}
+	
+	<tr>
+		<td>{{line.item_id}}
+		<form method = "POST" action= "/acceptTag">
+		<input multiple type="hidden" name ="item_id" value={{line.item_id}}></input>
+		<input multiple type="hidden" name ="email_tagger" value={{line.email_tagger}}></input>
+		<button type="submit">Accept</button>
+		</form>
+		<form method = "POST" action="/declineTag">
+		<input multiple type="hidden" name ="item_id" value={{line.item_id}}></input>
+		<input multiple type="hidden" name ="email_tagger" value={{line.email_tagger}}></input>
+		<button type="submit">Decline</button>
+		</form>
+
+		</td>
+		<td>{{line.email_tagged}}</td>
+	</tr>
+	{% endfor %}
+
+	</table>
+
+</br>
+
+</br>
+<br>
+Tagged People
+	<table>
+	<th>Item ID</th>
+	<th>Email</th>
+	{% for line in tags %}
+	<tr>
+		<td>{{line.item_id}}</td>
+		<td>{{line.email_tagged}}</td>
+	{% endfor %}
+
+
+	</table>
+
+</br>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+</body>
+
+
+</html>
+
+

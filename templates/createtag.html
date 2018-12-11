@@ -1,0 +1,39 @@
+<html>
+<head>
+<title> Pricosha </title>
+</head>
+<body>
+<br>
+<nav>
+	<ul class="nav">
+	<li><a href = "/home">Home</a></li>
+	<li><a href = "/friendgroup">Friendgroup</a></li>
+	</ul>
+</nav>
+</br>
+<form action="/friendgroup" method="post">
+	<h1>Welcome {{fname}}</h1> 
+	<input type="text" name = "email" placeholder="Email" required/> </br>
+	<input type="text" name = "fg_name" placeholder="Friendgroup Name" required/> </br>
+	<input type="text" name = "description" placeholder="Description" required/> </br>
+
+
+	<input type="submit" value = Submit />
+</form>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+</br>
+
+
+<br>
+<a href="/logout">Logout</a>
+
+</body>
+
+
+</html>

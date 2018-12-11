@@ -1,0 +1,54 @@
+<html>
+<head>
+<title> Pricosha </title>
+</head>
+
+<body>
+<br>
+<nav>
+	<ul class="nav">
+	<li><a href = "/home">Home</a></li>
+	<li><a href = "/createfg">Friendgroup</a></li>
+	<li><a href = "/managetag">Manage Tags</a></li>
+	</ul>
+</nav>
+</br>
+<br>
+Do you want to tag your friends?
+<br>
+	<form action = "/createTag" methods = "POST">
+		<input type = "text" name = "Tagged" placeholder = "Email Here" required/><br>
+		<input type = "text" name = "Item_ID" placeholder = "Item ID" required/><br>
+		<input type = "submit" value = Post><br>
+	</form>
+<br>
+
+Here are your tag requests
+<br>
+	<table>
+	<th>Item_ID</th>
+	<th>First Name</th>
+	<th>Last Name</th>
+
+	{% for line in Tags %}
+	<a href = "/accepttag"><button type = "button"> "accept" </button></a>
+	<a href = "declinetag"><button type = "button"> "decline" </button></a>
+	<tr>
+		<td>{{lines.ItemID}}</td>
+		<td>{{lines.fname}}</td>
+		<td>{{lines.lname}}</td>
+	</tr>
+{% endfor %}
+
+</table>
+
+</br>
+
+Tagged People
+<table>
+<th>Item ID</th>
+<th>First Name</th>
+<th>Last Name</th>
+</table>
+
+</br>
